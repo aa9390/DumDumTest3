@@ -13,7 +13,7 @@ import com.fashare.stack_layout.StackLayout;
  * 左右滑动时的角度效果
  */
 public final class AngleTransformer extends StackLayout.PageTransformer {
-    private float mMinAngle = -30f;
+    private float mMinAngle = -20f;
     private float mMaxAngle = 0f;
 
     public AngleTransformer(float minAngle, float maxAngle) {
@@ -33,10 +33,10 @@ public final class AngleTransformer extends StackLayout.PageTransformer {
         int pageHeight = parent.getMeasuredHeight();
 
         view.setPivotX(pageWidth/2);
-        view.setPivotY(pageHeight);
+        view.setPivotY(pageWidth/2);
 
         if (position > -1 && position <= 0) { // (-1,0]
-            view.setVisibility(View.VISIBLE);
+            view.setVisibility(View.GONE);
 
             view.setRotation((mMaxAngle - (mMaxAngle-mMinAngle) * Math.abs(position)) * (isSwipeLeft? 1: -1));
         } else{

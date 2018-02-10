@@ -57,15 +57,7 @@ public class FragmentOne extends Fragment {
         mMyData = new ArrayList<>(  );
         mMyData.add(new MyData( "오늘 비도 오고 완전 우울함ㅠㅠ" ));
         mMyData.add(new MyData( "저리강" ));
-        mMyData.add(new MyData( "안뇽" ));
-        mMyData.add(new MyData( "안뇽" ));
-        mMyData.add(new MyData( "안뇽" ));
-        mMyData.add(new MyData( "안뇽" ));
-        mMyData.add(new MyData( "안뇽" ));
-        mMyData.add(new MyData( "안뇽" ));
-        mMyData.add(new MyData( "안뇽" ));
-        mMyData.add(new MyData( "안뇽" ));
-        mMyData.add(new MyData( "안뇽" ));
+
     }
 
     public interface OnFragmentInteractionListener {

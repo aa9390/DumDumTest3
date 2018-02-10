@@ -142,11 +142,15 @@ public class StackLayout extends FrameLayout {
 
         private void dataChanged(Adapter adapter) {
             // 滑动过程中记录数据数据已脏, 待滑动结束刷新数据
+
+            /*
             if(mViewDragHelper.getViewDragState() != ViewDragHelper.STATE_IDLE){
                 isDataChangedWhileScrolling = true;
                 return ;
             }
             isDataChangedWhileScrolling = false;
+
+            */
 
             StackLayout.this.removeAllViews();
             for(int i=getCurrentItem(); i<adapter.getItemCount(); i ++) {
@@ -154,7 +158,8 @@ public class StackLayout extends FrameLayout {
                 StackLayout.this.addView(viewHolder.itemView, 0);
             }
 
-            transformPage(0, true);
+
+            //transformPage(0, true);
         }
     }
 
@@ -239,10 +244,13 @@ public class StackLayout extends FrameLayout {
 //                        Log.d(TAG, "onViewReleased: remove" + ViewHolder.getPosition(releasedChild));
                         removeView(view);
                         setCurrentItem(getCurrentItem() + 1);
+
+                        /*
                         mOnSwipeListener.onSwiped(view, ViewHolder.getPosition(view), left < 0, mAdapter.getItemCount() - getCurrentItem());
 
                         if(mItemObserver.isDataChangedWhileScrolling)
                             mItemObserver.dataChanged(mAdapter);
+                            */
                     }
                 });
             }

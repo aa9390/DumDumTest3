@@ -1,21 +1,14 @@
-package com.fashare.stack_layout.transformer;
+package org.androidtown.dumdumtest3;
 
 import android.view.View;
 
 import com.fashare.stack_layout.StackLayout;
 
 /**
- * User: fashare(153614131@qq.com)
- * Date: 2017-02-16
- * Time: 22:26
- * <br/>
- *
- * 堆叠效果实现, 默认的 PageTransformer
- *
- * 灵感来源:
- * <a href="http://hukai.me/android-training-course-in-chinese/animations/screen-slide.html">Depth Page Transformer<a/>
+ * Created by User on 2018-02-10.
  */
-public final class StackPageTransformer extends StackLayout.PageTransformer {
+
+public final class MyStackPageTransformer extends StackLayout.PageTransformer {
     private float mMinScale;    // 栈底: 最小页面缩放比
     private float mMaxScale;    // 栈顶: 最大页面缩放比
     private int mStackCount;    // 栈内页面数
@@ -28,7 +21,7 @@ public final class StackPageTransformer extends StackLayout.PageTransformer {
      * @param maxScale 栈顶: 最大页面缩放比
      * @param stackCount 栈内页面数
      */
-    public StackPageTransformer(float minScale, float maxScale, int stackCount) {
+    public MyStackPageTransformer(float minScale, float maxScale, int stackCount) {
         mMinScale = minScale;
         mMaxScale = maxScale;
         mStackCount = stackCount;
@@ -38,17 +31,12 @@ public final class StackPageTransformer extends StackLayout.PageTransformer {
         mPowBase = (float) Math.pow(mMinScale/mMaxScale, 1.0f/mStackCount);
     }
 
-    public StackPageTransformer() {
-        this(0.8f, 0.95f, 1);
+    public MyStackPageTransformer() {
+        this(1f, 1f, 2);
     }
 
     public final void transformPage(View view, float position, boolean isSwipeLeft) {
         View parent = (View) view.getParent();
-
-        /*
-        int pageWidth = parent.getMeasuredWidth();
-        int pageHeight = parent.getMeasuredHeight();
-        */
 
         int pageWidth = parent.getMeasuredWidth();
         int pageHeight = parent.getMeasuredHeight();
